@@ -30,6 +30,77 @@ https://raw.githubusercontent.com/jakubc78/MuleSoft-Icons-PUML/main/API_Manager.
 
 The filenames are case-sensitive in URLs. To inspect or download a full-resolution image, click its name beneath the thumbnail.
 
+## Variant gallery
+
+Every one of the 138 root icons has an RGBA PNG variant at **16, 24, 32, 48, and 64 pixels**, in each of nine themes. The image keeps its visible aspect ratio, is centered on a transparent square canvas, and uses the source filename unchanged. Choose a larger size for presentations or detailed artwork; 16 and 24 pixels work best for simpler shapes.
+
+| Theme | Colour | Suggested diagram use |
+|---|---|---|
+| `original` | Source colours | Preserve the original artwork |
+| `mono-dark` | `#212121` | Light backgrounds |
+| `mono-light` | `#FFFFFF` | Dark backgrounds |
+| `blue` | `#00A1DF` | Standard MuleSoft components |
+| `grey` | `#808080` | Supporting infrastructure |
+| `red` | `#E53935` | Failed or critical components |
+| `green` | `#43A047` | Healthy components |
+| `orange` | `#FB8C00` | Warnings or degraded state |
+| `purple` | `#8E24AA` | External or special-purpose components |
+
+These are suggested conventions for diagrams, not mandatory meanings. Keep a legend when colour carries status information.
+
+### Compare themes
+
+The same API Manager icon at 32 × 32 pixels:
+
+| Original | Dark | Light | Blue | Grey | Red | Green | Orange | Purple |
+|---|---|---|---|---|---|---|---|---|
+| ![Original API Manager](variants/32/original/API_Manager.png) | ![Dark API Manager](variants/32/mono-dark/API_Manager.png) | ![White API Manager](variants/32/mono-light/API_Manager.png) | ![Blue API Manager](variants/32/blue/API_Manager.png) | ![Grey API Manager](variants/32/grey/API_Manager.png) | ![Red API Manager](variants/32/red/API_Manager.png) | ![Green API Manager](variants/32/green/API_Manager.png) | ![Orange API Manager](variants/32/orange/API_Manager.png) | ![Purple API Manager](variants/32/purple/API_Manager.png) |
+
+The white preview is intended for a dark page or diagram background.
+
+| API Manager | CloudHub | Anypoint MQ | Database | Salesforce | Runtime Manager |
+|---|---|---|---|---|---|
+| ![API Manager](variants/48/blue/API_Manager.png) | ![CloudHub](variants/48/blue/CloudHub.png) | ![Anypoint MQ](variants/48/green/Anypoint_MQ.png) | ![Database](variants/48/grey/Database.png) | ![Salesforce](variants/48/purple/Salesforce.png) | ![Runtime Manager](variants/48/orange/Runtime_Manager.png) |
+
+### Browse variant directories
+
+| Size | Original | Dark | Light | Blue | Grey | Red | Green | Orange | Purple |
+|---|---|---|---|---|---|---|---|---|---|
+| 16 | [original](variants/16/original/) | [mono-dark](variants/16/mono-dark/) | [mono-light](variants/16/mono-light/) | [blue](variants/16/blue/) | [grey](variants/16/grey/) | [red](variants/16/red/) | [green](variants/16/green/) | [orange](variants/16/orange/) | [purple](variants/16/purple/) |
+| 24 | [original](variants/24/original/) | [mono-dark](variants/24/mono-dark/) | [mono-light](variants/24/mono-light/) | [blue](variants/24/blue/) | [grey](variants/24/grey/) | [red](variants/24/red/) | [green](variants/24/green/) | [orange](variants/24/orange/) | [purple](variants/24/purple/) |
+| 32 | [original](variants/32/original/) | [mono-dark](variants/32/mono-dark/) | [mono-light](variants/32/mono-light/) | [blue](variants/32/blue/) | [grey](variants/32/grey/) | [red](variants/32/red/) | [green](variants/32/green/) | [orange](variants/32/orange/) | [purple](variants/32/purple/) |
+| 48 | [original](variants/48/original/) | [mono-dark](variants/48/mono-dark/) | [mono-light](variants/48/mono-light/) | [blue](variants/48/blue/) | [grey](variants/48/grey/) | [red](variants/48/red/) | [green](variants/48/green/) | [orange](variants/48/orange/) | [purple](variants/48/purple/) |
+| 64 | [original](variants/64/original/) | [mono-dark](variants/64/mono-dark/) | [mono-light](variants/64/mono-light/) | [blue](variants/64/blue/) | [grey](variants/64/grey/) | [red](variants/64/red/) | [green](variants/64/green/) | [orange](variants/64/orange/) | [purple](variants/64/purple/) |
+
+### Use a variant
+
+In Markdown, reference the size, theme, and exact filename:
+
+```markdown
+![Healthy Anypoint MQ](variants/32/green/Anypoint_MQ.png)
+![Critical API Manager](variants/48/red/API_Manager.png)
+```
+
+For PlantUML renderers that accept PNG image URLs, use the raw GitHub path. For example, these colours distinguish a standard MuleSoft service, its supporting database, an external Salesforce system, and a warning state:
+
+```plantuml
+@startuml
+rectangle "<img:https://raw.githubusercontent.com/jakubc78/MuleSoft-Icons-PUML/main/variants/32/blue/API_Manager.png> API Manager" as api
+database "<img:https://raw.githubusercontent.com/jakubc78/MuleSoft-Icons-PUML/main/variants/32/grey/Database.png> Database" as db
+cloud "<img:https://raw.githubusercontent.com/jakubc78/MuleSoft-Icons-PUML/main/variants/32/purple/Salesforce.png> Salesforce" as sf
+rectangle "<img:https://raw.githubusercontent.com/jakubc78/MuleSoft-Icons-PUML/main/variants/32/orange/Runtime_Manager.png> Runtime Manager (degraded)" as runtime
+api --> db
+api --> sf
+api --> runtime
+@enduml
+```
+
+The raw URLs above become available on `main` after this library is merged. Local PlantUML rendering can use downloaded image paths instead.
+
+### Artwork limitations
+
+The two wide files, `API.png` and `API_238x132.png`, contain an opaque white logo inside a blue shape. Their recoloured variants use a transparent logo cutout to keep the detail visible; this changes the original two-colour treatment. The `original` variants retain the source colours. At 16 × 16 and sometimes 24 × 24, small text and intricate interior details in complex icons, such as Salesforce, are limited by the available pixels. Each variant is a raster downsample, so increasing its display size will not recover detail.
+
 ## Image gallery
 
 ### Anypoint Platform & MuleSoft products
